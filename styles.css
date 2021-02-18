@@ -468,7 +468,7 @@ a {
     font-family: 'Satisfy';
     font-size: 3rem;
     color: white;
-    margin: 10vh 0;
+    margin: 10vh 0 4vh 0;
     user-select: none;
 }
 
@@ -520,6 +520,7 @@ a {
     position: relative;
 }
 
+
 .card p{
     overflow: hidden;
     margin: 0 1vw;
@@ -529,8 +530,20 @@ a {
     font-size: 1rem;
 }
 
+
+@media screen and (max-width: 769px) {
+    .card {
+        width: 225px;
+        height: 430px;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+}
+
 .card img {
-    width: 250px;
+    width: 100%;
     border-bottom-right-radius: 50px;
     border-bottom-left-radius: 50px;
     position: absolute; 
@@ -609,8 +622,8 @@ a {
 }
 
 .fb img {
-    height: 120px;
-    width: 120px;
+    height: 110px;
+    width: 110px;
     background-color: #4267B2;
     border-radius: 50%;
     transition: 0.4s all ease;
@@ -620,8 +633,8 @@ a {
 }
 
 .ig img {
-    height: 120px;
-    width: 120px;
+    height: 110px;
+    width: 110px;
     transition: 0.4s all ease;
 }
 
@@ -656,17 +669,24 @@ form {
     align-items: flex-start;
     text-align: left;
     height: 260px;
-    width: 25vw;
-    margin-left: 17vw;
+    width: 330px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form span {
+    font-size: 0.9rem;
 }
 
 .input-box {
     position: relative;
     width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .input-box input {
-    width: 50%;
+    width: 75%;
     color: black;
 }
 
@@ -689,6 +709,7 @@ input, textarea {
 
 textarea {
     color: black;
+    width: 50%;
 }
 
 #footer {
