@@ -14,7 +14,7 @@
 
 section {
     overflow: hidden;
-    min-height: 700px;
+    min-height: 750px;
 }
 
 p {
@@ -40,7 +40,7 @@ header {
     background-color:rgba(255, 255, 255, 0.95);
     display: flex;
     justify-content: space-around;
-    z-index: 2;
+    z-index: 3;
 }
 
 #header-logo {
@@ -210,7 +210,7 @@ a {
     font-size: 1.2rem;
     outline: none;
     transition: 0.4s all ease;
-    margin-bottom: 2vh;
+    margin: auto;
 }
 
 .sunshine-description button i {
@@ -459,7 +459,7 @@ a {
 .events-container {
     max-height: 600px;
     height: auto;
-    width: 700px;
+    max-width: 700px;
     text-align: center;
     border-radius: 20px;
     user-select: none;
@@ -468,6 +468,7 @@ a {
 
 .events-container p{
     color: white;
+    margin: 30px;
 }
 
 .events-container h2 {
@@ -493,14 +494,15 @@ a {
     font-family: 'Satisfy';
     font-size: 3rem;
     user-select: none;
-    margin: 0;
+    margin: 10vh;
+    margin-bottom: 8vh;
 }
 
 #help h3 {
     color: #63B69C;
     font-family: 'Satisfy';
     font-size: 2.5rem;
-    margin: 4vh 0;
+    margin: 20px 0;
     user-select: none;
 }
 
@@ -525,23 +527,26 @@ a {
     background-color: white;
     border-radius: 50px;
     position: relative;
+    margin-bottom: 30px;
 }
-
 
 .card p{
     overflow: hidden;
-    margin: 0 1vw;
+    margin: 0 10px;
     text-align: center;
     user-select: none;
     line-height: 1.5;
     font-size: 1rem;
 }
 
-
 @media screen and (max-width: 1000px) {
+    .sunshine-description p {
+        width: 400px;
+    }
+
     .card {
-        width: 225px;
-        height: 430px;
+        width: 210px;
+        height: 400px;
     }
 
     .card p {
@@ -554,16 +559,39 @@ a {
 
     .animals-container {
         width: 500px;
+        margin-bottom: 20px;
     }
 }
 
 @media screen and (max-width: 500px) {
+    .piggy {
+        display: none;
+    }
+
+    .sunshine-description p {
+        width: 350px;
+    }
+
     .animals-container {
         width: 340px;
     }
     
     .animals-images {
         margin: 0 10px 20px 10px;
+    }
+
+    .animals-pictures {
+        width: 120px;
+        height: 120px;
+    }
+
+    .button-container {
+        width: 120px;
+        height: 120px;
+    }
+
+    #events {
+        height: 1000px;
     }
 
     #help {
@@ -573,10 +601,16 @@ a {
     .cards-container {
         flex-direction: column;
         align-items: center;
+        margin-bottom: 30px;
     }
 
     .card {
-        margin-bottom: 25px;
+        height: 460px;
+        width: 250px;
+    }
+
+    .card p {
+        font-size: 1rem;
     }
 }
 
@@ -708,8 +742,10 @@ form {
     text-align: left;
     height: 260px;
     width: 330px;
-    margin-left: auto;
-    margin-right: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 form span {
@@ -731,7 +767,7 @@ form span {
 .input-send input {
     background-color: #63B69C;
     color: white;
-    padding: 0.25rem 1rem;
+    padding: 4px 20px;
     outline: none;
 }
 
@@ -748,6 +784,46 @@ input, textarea {
 textarea {
     color: black;
     width: 50%;
+    height: 115px;
+    width: 170px;
+    font-size: 0.8rem;
+}
+
+@media screen and (max-width: 750px) {
+    #contact {
+        height: 100%;
+        flex-direction: column;
+    }
+
+    .follow-us {
+        width: 100%;
+        height: 500px;
+        border: none;
+        margin-bottom: 20px;
+    }
+
+    .contact-us {
+        width: 100%;
+        height: 500px;
+        border: none;
+        border-top: 2px solid white;
+    }
+
+    .social-media {
+        transform: translate(0, 0);
+        position: relative;
+        top: 0;
+        left: 0;
+        margin-bottom: 10vh;
+    }
+
+    form {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        margin: auto auto 10vh auto;
+    }
 }
 
 footer {

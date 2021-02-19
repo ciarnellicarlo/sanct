@@ -7,3 +7,11 @@ buttonsOpen.forEach(item => item.addEventListener('click', e => e.currentTarget.
 buttonsClose.forEach(item => item.addEventListener('click', e => e.currentTarget.closest('.modal-container').classList.remove('show')));
 
 closeModal.forEach(item => item.addEventListener('click', e => e.currentTarget.closest('.modal-container').classList.remove('show')));
+
+AOS.init()
+AOS.init({
+    disable: function() {
+        var maxWidth = 800;
+        return window.innerWidth < maxWidth;
+      }
+})
