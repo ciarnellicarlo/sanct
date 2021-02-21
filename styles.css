@@ -41,28 +41,30 @@ header {
     background-color:rgba(255, 255, 255, 0.95);
     display: flex;
     justify-content: space-around;
+    align-items: center;
     z-index: 3;
+    height: 10vh;
+    min-height: 40px;
 }
 
 #header-logo {
-    width: 50%;
-    display: flex;
-    justify-content: center;
+    height: 10vh;
+    min-height: 40px;
 }
 
 .top-sanctuary-logo {
-    margin-right: 33vw;
 }
 
 #header-logo img {
-    height: 4.5rem;
+    height: 10vh;
+    min-height: 40px;
 }
 
 .menu {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 50%;
+    width: 75%;
     z-index: 3;
 }
 
@@ -75,6 +77,7 @@ header {
     border-bottom: 1px solid rgba(102, 185, 159, 0);
     transition: all 0.33s;
     z-index: 3;
+    letter-spacing: 3px;
 }
 
 .menu li a:hover {
@@ -82,14 +85,24 @@ header {
     transition: all 0.33s;   
 }
 
-#hamburger-menu {
-    display: none;
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 10px;
+    border: 2px solid #63B69C;
+    opacity: 0;
+    user-select: none;
 }
 
-.strip {
-    width: 20px;
-    padding: 10px;
-    border: 1px solid black;
+.hamburger-menu div {
+    width: 25px;
+    height: 4px;
+    background-color:#63B69C;
+    margin: 2px;
+    border: none;
 }
 
 a { 
@@ -105,6 +118,7 @@ a {
     font-size: 4rem;
     animation: fadeIn ease 2s;
     user-select: none;
+    margin: 0 32px;
 }
 
 @keyframes fadeIn {
@@ -190,7 +204,8 @@ a {
     align-items: center;
     align-content: center;
     justify-content: flex-start;
-    background-color: white;
+    background-color: #fafafa;
+
 }
 
 .sunshine-description h2 {
@@ -215,7 +230,7 @@ a {
     text-decoration: none;
     text-align: center;
     padding: 9px 28px;
-    background-color: white;
+    background-color: #fafafa;
     border: 2px solid #D96827;
     border-radius: 20px;
     color: #D96827;
@@ -553,7 +568,25 @@ a {
     font-size: 1rem;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 768px) {
+    #header-logo {
+        margin-left: 15px
+    }
+
+    .flex {
+        justify-content: space-between;
+    }
+
+    .menu {
+        display: none;
+    }
+
+    .hamburger-menu {
+        opacity: 1;
+        user-select: auto;
+        margin-right: 15px;
+    }
+
     .sunshine-description p {
         width: 400px;
     }
@@ -591,14 +624,6 @@ a {
 }
 
 @media screen and (max-width: 500px) {
-    .menu {
-        display: none;
-    }
-
-    #hamburger-menu {
-        display: block;
-    }
-
     .piggy {
         display: none;
     }
