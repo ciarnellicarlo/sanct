@@ -10,6 +10,7 @@
     font-family: 'Poppins', sans-serif;
     color: #66b99f;
     font-size: 1.05rem;
+    scroll-behavior: smooth;
 }
 
 section {
@@ -79,6 +80,16 @@ header {
 .menu li a:hover {
     border-bottom: 1px solid #63B69C;
     transition: all 0.33s;   
+}
+
+#hamburger-menu {
+    display: none;
+}
+
+.strip {
+    width: 20px;
+    padding: 10px;
+    border: 1px solid black;
 }
 
 a { 
@@ -185,7 +196,7 @@ a {
 .sunshine-description h2 {
     font-family: 'Satisfy';
     font-size: 3rem;
-    margin: 10vh 0;
+    margin: 8vh 0;
     user-select: none;
 }
 
@@ -200,25 +211,25 @@ a {
     margin: 0 2vw;
 }
 
-.sunshine-description button {
-    width: 200px;
-    height: 50px;
+.sunshine-description a {
+    text-decoration: none;
+    text-align: center;
+    padding: 9px 28px;
     background-color: white;
     border: 2px solid #D96827;
     border-radius: 20px;
     color: #D96827;
     font-size: 1.2rem;
-    outline: none;
     transition: 0.4s all ease;
     margin: auto;
 }
 
-.sunshine-description button i {
+.sunshine-description a i {
     color: #D96827;
     margin-left: 0.5rem;
 }
 
-.sunshine-description button:hover {
+.sunshine-description a:hover {
     background-color: #D96827;
     color: white;
     cursor: pointer;
@@ -226,7 +237,7 @@ a {
     box-shadow: 0px 0px 15px 2px rgba(0,0,0,0.5);
 }
 
-.sunshine-description button:hover i {
+.sunshine-description a:hover i {
     color: white;
     transition: all 0.4s ease;
 }
@@ -256,7 +267,7 @@ a {
     font-family: 'Satisfy';
     font-size: 3rem;
     color: white;
-    margin-top: 10vh;
+    margin-top: 8vh;
     user-select: none;
     position: relative;
 }
@@ -277,6 +288,7 @@ a {
     flex-wrap: wrap;
     width: 1000px;
     position: relative;
+    padding-bottom: 25px;
 }
 
 .animals-images {
@@ -435,6 +447,10 @@ a {
     text-align: center;
 }
 
+.modal-right::-webkit-scrollbar {
+    display: none;
+  }
+
 #events {
     position: relative;
     height: 100vh;
@@ -457,25 +473,23 @@ a {
 }
 
 .events-container {
-    max-height: 600px;
-    height: auto;
     max-width: 700px;
     text-align: center;
-    border-radius: 20px;
     user-select: none;
     z-index: 2;
+    position: relative;
 }
 
 .events-container p{
     color: white;
-    margin: 30px;
+    padding: 16px 32px 62px;
 }
 
 .events-container h2 {
     font-family: 'Satisfy';
     font-size: 3rem;
     color: white;
-    margin: 10vh 0 4vh 0;
+    margin-top: 10vh;
     user-select: none;
 }
 
@@ -494,8 +508,8 @@ a {
     font-family: 'Satisfy';
     font-size: 3rem;
     user-select: none;
-    margin: 10vh;
-    margin-bottom: 8vh;
+    margin: 6vh;
+    margin-bottom: 4vh;
 }
 
 #help h3 {
@@ -561,9 +575,30 @@ a {
         width: 500px;
         margin-bottom: 20px;
     }
+
+    .modal {
+        width: 600px;
+        height: 450px;
+    }
+
+    .modal-right {
+        overflow-y: scroll;
+    }
+
+    #events {
+        height: 100%;
+    }
 }
 
 @media screen and (max-width: 500px) {
+    .menu {
+        display: none;
+    }
+
+    #hamburger-menu {
+        display: block;
+    }
+
     .piggy {
         display: none;
     }
@@ -590,8 +625,18 @@ a {
         height: 120px;
     }
 
-    #events {
-        height: 1000px;
+    .modal {
+        justify-content: center;
+    }
+
+    .modal-left {
+        display: none;
+    }
+
+    .modal-right {
+        width: 350px;
+        border-radius: 20px;
+        overflow: scroll;
     }
 
     #help {
@@ -676,7 +721,7 @@ a {
 }
 
 .follow-us h2 {
-    margin: 10vh 0;
+    margin: 8vh 0;
     font-family: 'Satisfy';
     font-size: 3rem;
     user-select: none;
@@ -722,7 +767,7 @@ a {
 }
 
 .contact-us h2 {
-    margin: 10vh 0;
+    margin: 8vh 0;
     color: white;
     font-family: 'Satisfy';
     font-size: 3rem;
