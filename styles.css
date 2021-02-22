@@ -15,7 +15,7 @@
 
 section {
     overflow: hidden;
-    min-height: 750px;
+    min-height: 700px;
 }
 
 p {
@@ -42,7 +42,7 @@ header {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    z-index: 3;
+    z-index: 4;
     height: 10vh;
     min-height: 40px;
 }
@@ -50,27 +50,27 @@ header {
 #header-logo {
     height: 10vh;
     min-height: 40px;
-}
-
-.top-sanctuary-logo {
+    
 }
 
 #header-logo img {
     height: 10vh;
     min-height: 40px;
+    animation: fadeIn2 ease 1s;
 }
 
 .menu {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 75%;
+    width: 66%;
     z-index: 3;
 }
 
 .menu li {
     list-style: none;
     z-index: 3;
+    animation: fadeIn ease 1s;
 }
 
 .menu li a {
@@ -85,29 +85,29 @@ header {
     transition: all 0.33s;   
 }
 
-.hamburger-menu {
+.burger-menu {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 8px;
     border-radius: 10px;
-    border: 2px solid #63B69C;
     opacity: 0;
     user-select: none;
 }
 
-.hamburger-menu div {
-    width: 25px;
+.strip {
+    width: 30px;
     height: 4px;
     background-color:#63B69C;
-    margin: 2px;
+    margin: 4px;
     border: none;
 }
 
 a { 
     text-decoration: none;
 } 
+
 
 #hero-name {
     color: white;
@@ -282,7 +282,7 @@ a {
     font-family: 'Satisfy';
     font-size: 3rem;
     color: white;
-    margin-top: 8vh;
+    margin-top: 10vh;
     user-select: none;
     position: relative;
 }
@@ -497,10 +497,10 @@ a {
 
 .events-container p{
     color: white;
-    padding: 16px 32px 62px;
+    padding: 36px;
 }
 
-.events-container h2 {
+#events h2 {
     font-family: 'Satisfy';
     font-size: 3rem;
     color: white;
@@ -513,7 +513,7 @@ a {
     background-color:  #63B69C;
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     text-align: center;
     position: relative;
 }
@@ -523,8 +523,8 @@ a {
     font-family: 'Satisfy';
     font-size: 3rem;
     user-select: none;
-    margin: 6vh;
-    margin-bottom: 4vh;
+    margin: 0 16px;
+    margin-top: 10vh;
 }
 
 #help h3 {
@@ -548,6 +548,7 @@ a {
 .cards-container {
     display: flex;
     justify-content: space-evenly;
+    padding: 32px 36px;
 }
 
 .card {
@@ -568,6 +569,26 @@ a {
     font-size: 1rem;
 }
 
+@media screen and (max-width: 1000px) {
+    .animals-container {
+        width: 800px;
+        margin-bottom: 20px;
+    }
+    
+    #animals {
+        height: 100%;
+    }
+    
+    .card {
+        width: 210px;
+        height: 400px;
+    }
+
+    .card p {
+        font-size: 0.9rem;
+    }
+}
+
 @media screen and (max-width: 768px) {
     #header-logo {
         margin-left: 15px
@@ -578,30 +599,38 @@ a {
     }
 
     .menu {
-        display: none;
+        position: absolute;
+        right: 0;
+        height: 90vh;
+        top: 10vh;
+        background-color: #F4BCA4;
+        flex-direction: column;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease;
+        z-index: 4;
     }
 
-    .hamburger-menu {
+    .menu li {
+        opacity: 0;
+    }
+
+    .menu li a {
+        color: white;
+        letter-spacing: 2px;
+        text-shadow: 0px 0px 5px rgb(0, 0, 0, 0.5);
+    }
+
+    .burger-menu {
         opacity: 1;
         user-select: auto;
         margin-right: 15px;
+        cursor: pointer;
+        padding: 8px;
     }
 
     .sunshine-description p {
         width: 400px;
-    }
-
-    .card {
-        width: 210px;
-        height: 400px;
-    }
-
-    .card p {
-        font-size: 0.9rem;
-    }
-
-    #animals {
-        height: 100%;
     }
 
     .animals-container {
@@ -621,9 +650,53 @@ a {
     #events {
         height: 100%;
     }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .card {
+        height: 460px;
+        width: 250px;
+        margin: 40px;
+    }
+
+    .card p {
+        font-size: 1rem;
+    }
+    
+    #help {
+        height: 100%
+    }
 }
 
-@media screen and (max-width: 500px) {
+
+.mobile-menu-active {
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 0.5s ease;
+    border-left: 3px solid white;
+}
+
+.strip-active {
+    background-color: #F4BCA4;
+}
+
+@keyframes menuFade {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0)
+    }
+}
+
+@media screen and (max-width: 475px) {
+
     .piggy {
         display: none;
     }
@@ -662,25 +735,6 @@ a {
         width: 350px;
         border-radius: 20px;
         overflow: scroll;
-    }
-
-    #help {
-        height: 100%
-    }
-
-    .cards-container {
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 30px;
-    }
-
-    .card {
-        height: 460px;
-        width: 250px;
-    }
-
-    .card p {
-        font-size: 1rem;
     }
 }
 
@@ -746,7 +800,7 @@ a {
 }
 
 .follow-us h2 {
-    margin: 8vh 0;
+    margin: 10vh 0;
     font-family: 'Satisfy';
     font-size: 3rem;
     user-select: none;
@@ -792,7 +846,7 @@ a {
 }
 
 .contact-us h2 {
-    margin: 8vh 0;
+    margin: 10vh 0;
     color: white;
     font-family: 'Satisfy';
     font-size: 3rem;
