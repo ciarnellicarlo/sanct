@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@300&display=swap');
 
 * {
@@ -50,7 +48,6 @@ header {
 #header-logo {
     height: 10vh;
     min-height: 40px;
-    
 }
 
 #header-logo img {
@@ -102,24 +99,12 @@ header {
     background-color:#63B69C;
     margin: 4px;
     border: none;
+    transition: background-color 0.5s ease;
 }
 
 a { 
     text-decoration: none;
 } 
-
-
-#hero-name {
-    color: white;
-    font-weight: 100;
-    text-shadow: 0px 0px 5px rgba(0,0,0,0.5);
-    text-align: center;
-    font-family: 'Satisfy';
-    font-size: 4rem;
-    animation: fadeIn ease 2s;
-    user-select: none;
-    margin: 0 32px;
-}
 
 @keyframes fadeIn {
     0% {opacity:0; transform: translateY(-50px);}
@@ -135,44 +120,53 @@ a {
     height: 100vh;
 }
 
-.hero-slider-video {
+.hero-slider-items {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.hero-slider-item {
+.slider-item {
+    background-color: white;
     position: absolute;
-    background-image: url(slider-3.jpg);
-    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    min-height: 700px;
     background-size: cover;
     background-position: center;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
-.youtube-button {
-    justify-content: center;
-    animation: fadeIn2 ease 2s;
+.item1 {
+    background-image: url(./animals/animalsfull/sergefull.JPG);
+}
+
+.item2 {
+    background-image: url(./slider/slider1.JPG);
+}
+
+.item3 {
+    background-image: url(./slider/slider3.JPG);
+}
+
+#hero-name {
     color: white;
-    background-color:  #63B69C;
+    z-index: 3;
+    font-weight: 100;
+    text-shadow: 0px 0px 5px rgba(0,0,0,1);
+    text-align: center;
+    font-family: 'Satisfy';
+    font-size: 4rem;
+    animation: fadeIn ease 2s;
+    user-select: none;
+    margin: 0 32px;
     padding: 20px;
-    border-radius: 100%;
-    box-shadow: 0px 0px 15px 5px rgba(0,0,0,0.25);
-    margin-top: 20px;
-    transition: 0.4s ease;
-}
-
-.youtube-button:hover {
-    color: #63B69C;
-    background-color: white;
-    transition: 0.4s ease;
-}
-
-.fa-play {
 }
 
 #sunshine {
@@ -190,7 +184,7 @@ a {
 .piggy {
     height: 100%;
     width: 100%;
-    background-image: url(./piggy.jpg);
+    background-image: url(./animals/animalsfull/eviefull.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -206,6 +200,7 @@ a {
     justify-content: flex-start;
     background-color: #fafafa;
 
+
 }
 
 .sunshine-description h2 {
@@ -216,14 +211,17 @@ a {
 }
 
 .sunshine-description p {
-    overflow: hidden;
-    max-height: 400px;
-    height: auto;
+    overflow: scroll;
+    height: 100%;
     width: 500px;
     text-align: center;
     flex-grow: 1;
     user-select: none;
     margin: 0 2vw;
+}
+
+.sunshine-description p::-webkit-scrollbar {
+    display: none;
 }
 
 .sunshine-description a {
@@ -236,7 +234,7 @@ a {
     color: #D96827;
     font-size: 1.2rem;
     transition: 0.4s all ease;
-    margin: auto;
+    margin: 36px;
 }
 
 .sunshine-description a i {
@@ -270,7 +268,7 @@ a {
 
 .animals-background {
     position: absolute;
-    background-image: url(./slider-1.jpg);
+    background-image: url(./animalsbg.jpg);
     background-size: cover;
     opacity: 0.15;
     width: 100%;
@@ -307,7 +305,7 @@ a {
 }
 
 .animals-images {
-    margin: 0 25px 50px 25px;
+    margin: 0 40px 60px 40px;
     position: relative;
 }
 
@@ -479,7 +477,7 @@ a {
 
 .events-background {
     position: absolute;
-    background-image: url(./slider-2.jpg);
+    background-image: url(./eventsbg.jpg);
     background-size: cover;
     background-position: center;
     opacity: 0.1;
@@ -537,7 +535,7 @@ a {
 
 .help-background {
     position: absolute;
-    background-image: url(./slider-3.jpg);
+    background-image: url(./helpbg.jpg);
     background-size: cover;
     opacity: 0.1;
     width: 100%;
@@ -603,22 +601,30 @@ a {
         right: 0;
         height: 90vh;
         top: 10vh;
-        background-color: #F4BCA4;
+        background-color: #f0b9a1;
         flex-direction: column;
-        width: 50%;
+        justify-content: flex-start;
+        width: 33%;
         transform: translateX(100%);
         transition: transform 0.5s ease;
         z-index: 4;
     }
 
+    
     .menu li {
         opacity: 0;
+        margin: 2vh 0;
+    }
+
+    .menu li:first-child {
+        margin-top: 5vh;
     }
 
     .menu li a {
         color: white;
         letter-spacing: 2px;
         text-shadow: 0px 0px 5px rgb(0, 0, 0, 0.5);
+
     }
 
     .burger-menu {
@@ -660,7 +666,7 @@ a {
     .card {
         height: 460px;
         width: 250px;
-        margin: 40px;
+        margin: 20px;
     }
 
     .card p {
@@ -696,7 +702,9 @@ a {
 }
 
 @media screen and (max-width: 475px) {
-
+    .menu {
+        width: 50%;
+    }
     .piggy {
         display: none;
     }
@@ -767,7 +775,7 @@ a {
 
 .contact-background {
     position: absolute;
-    background-image: url(./slider-1.jpg);
+    background-image: url(./contactbg.jpg);
     background-size: cover;
     opacity: 0.1;
     width: 100%;
@@ -834,12 +842,14 @@ a {
     transition: 0.4s all ease;
 }
 
-.ig img:hover, .fb img:hover {
-    width: 130px;
-    height: 130px;
-    transition: 0.4s all ease;
-    filter: drop-shadow(0px 0px 15px rgba(0,0,0,0.5));
-}
+@media screen and (min-width: 750px) {
+    .ig img:hover, .fb img:hover {
+        width: 130px;
+        height: 130px;
+        transition: 0.4s all ease;
+        filter: drop-shadow(0px 0px 15px rgba(0,0,0,0.5));
+    }
+} 
 
 .contact-us {
     text-align: center;
@@ -928,7 +938,7 @@ textarea {
 
     .contact-us {
         width: 100%;
-        height: 500px;
+        min-height: 500px;
         border: none;
         border-top: 2px solid white;
     }
@@ -952,9 +962,22 @@ textarea {
 
 footer {
     height: 10vh;
-    background-color: #F4BCA4;
+    min-height: 120px;
+    background-color: #f0b9a1;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
 
 footer p {
-    color: white;
+    color: black;
+    font-size: 0.8rem;
+    margin: 8px;
+    letter-spacing: 2px;
+}
+
+footer p span {
+    font-size: 0.8rem;
+    color: black;
+    letter-spacing: 1px;
 }

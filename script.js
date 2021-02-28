@@ -5,6 +5,24 @@ const mobileMenu = document.querySelector('.burger-menu');
 const mobileNav = document.querySelector('.menu');
 const mobileStrips = document.querySelectorAll('.strip');
 const menu = document.querySelectorAll('.menu li');
+const sliderImage = document.querySelectorAll('.slider-item');
+
+//Hero slideshow
+
+let currentImage = 0;
+const delay = 4000;
+
+sliderImage[currentImage].style.opacity = "1";
+
+setInterval(nextImage, delay);
+
+function nextImage() {
+    sliderImage[currentImage].style.opacity = "0";
+    currentImage = (currentImage + 1) % sliderImage.length;
+    sliderImage[currentImage].style.opacity = "1";
+}
+
+nextImage();
 
 //Modal animation
 
