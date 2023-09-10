@@ -1,0 +1,21 @@
+<div class="container">   
+    <h2>Form Summary</h2>
+
+    <div *ngIf="hasData; else noData">
+        <div *ngIf="formData">
+            <p><strong>First Name:</strong> {{ formData.firstName }}</p>
+            <p><strong>Last Name:</strong> {{ formData.lastName }}</p>
+            <p><strong>Email:</strong> {{ formData.email }}</p>
+            <p><strong>Subscription:</strong> {{ formData.subscription }}</p>
+            <p><strong>Password:</strong> {{ formData.password }}</p>
+        </div>
+    </div>
+
+    <ng-template #noData>
+        <div class="no-data-message">
+            No registration is present, please <a routerLink="/">proceed to registration</a>.
+        </div>
+    </ng-template>
+</div>
+
+<app-table [csvData]="csvData"></app-table>

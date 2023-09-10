@@ -1,0 +1,42 @@
+<div *ngIf="userForm.invalid && userForm.touched" class="required container">
+    <p>{{ formErrorMessages['invalidForm']['required'] }}</p>
+    <ul>
+        <li *ngFor="let error of collectErrors()">{{ error }}</li>
+    </ul>
+</div>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="container">
+    <input formControlName="firstName" placeholder="First Name" ngModel alphabetOnly>
+    <div *ngIf="userForm.get('firstName')?.touched" class="required">
+        <span>{{ getErrorMessageForField('firstName') }}</span>
+    </div>
+
+    <input formControlName="lastName" placeholder="Last Name" ngModel alphabetOnly>
+    <div *ngIf="userForm.get('lastName')?.touched" class="required">
+        <span>{{ getErrorMessageForField('lastName') }}</span>
+    </div>
+
+    <input type="email" formControlName="email" placeholder="Email Address">
+    <div *ngIf="userForm.get('email')?.touched" class="required">
+        <span>{{ getErrorMessageForField('email') }}</span>
+    </div>
+
+    <input type="password" formControlName="password" placeholder="Password">
+    <div *ngIf="userForm.get('password')?.touched" class="required">
+        <span>{{ getErrorMessageForField('password') }}</span>
+    </div>
+  
+    <select formControlName="subscription">
+        <option value="Basic">Basic</option>
+        <option value="Advanced">Advanced</option>
+        <option value="Pro">Pro</option>
+    </select>
+  
+    <input type="file" (change)="onFileChange($event)" formControlName="csvFile" accept=".csv">
+    <div *ngIf="userForm.get('csvFile')?.touched" class="required">
+        <span>{{ getErrorMessageForField('csvFile') }}</span>
+    </div>
+  
+    <button type="submit" [disabled]="userForm.invalid">Submit</button>
+    <button type="button" (click)="onClear()">Clear</button>
+</form>
